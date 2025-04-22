@@ -42,6 +42,17 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore "CSharp xUnit starter.sln"
 
+      - name: Check for vulnerable packages
+        run: |
+          vulnerable=$(dotnet list package --vulnerable --include-transitive)
+          if [[ $vulnerable == *"vulnerable"* ]]; then
+            echo "⚠️ Des packages vulnérables ont été détectés :"
+            echo "$vulnerable"
+            exit 1
+          else
+            echo "✅ Aucune vulnérabilité détectée dans les dépendances"
+          fi
+
       - name: Run Tests
         run: dotnet test "CSharp xUnit starter.sln"
         if: success()
