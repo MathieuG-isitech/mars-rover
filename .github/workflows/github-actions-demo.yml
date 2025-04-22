@@ -6,6 +6,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    steps:        
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore "CSharp xUnit starter.sln"
+      
     - name: Run Tests
-      run: dotnet test 
+      run: dotnet test "CSharp xUnit starter.sln" 
