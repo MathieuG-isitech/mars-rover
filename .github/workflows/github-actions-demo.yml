@@ -3,6 +3,20 @@ name: Test Runner
 on: [push]
 
 jobs:
+  check-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Check for rocket emoji
+        run: |
+          if ! git log -1 --pretty=%B | grep -q "🚀"; then
+            echo "❌ Le message de commit doit contenir l'émoji fusée 🚀"
+            exit 1
+          fi
+
   test:
     runs-on: ubuntu-latest
 
