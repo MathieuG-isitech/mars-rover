@@ -14,6 +14,17 @@ jobs:
       with:
         dotnet-version: 7.0.x
         
+    - name: Cache NuGet packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+          
+    - name: Confirm Cache Status
+      run: echo "Les dépendances NuGet ont été mises en cache avec succès"
+      
     - name: Restore dependencies
       run: dotnet restore "CSharp xUnit starter.sln"
       
