@@ -18,7 +18,7 @@ public class RoverTest
             new Coordinates(3, 3, Direction.South),
             rover.Advance().Coordinates
         );
-    }
+    } 
 
     [Fact]
     public void CouldAdvanceNorth()
