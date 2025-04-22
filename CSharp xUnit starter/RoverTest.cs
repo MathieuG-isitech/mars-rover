@@ -45,7 +45,7 @@ public class RoverTest
     [Fact]
     public void CouldAdvanceWest()
     {
-        var rover = new Rover(3, 4, Direction.West);
+        var rover = new Rover(3, 4, Direction.South);
 
         Assert.Equal(
             new Coordinates(2, 4, Direction.West),
