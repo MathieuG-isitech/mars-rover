@@ -1,3 +1,40 @@
+# TP Boss Final
+
+## Prérequis
+
+- Docker
+- Docker Compose
+
+## Installation et lancement
+
+1. Clonez le dépôt :
+```bash
+git clone [URL_DU_REPO]
+cd mars-rover
+```
+
+2. Lancez l'application :
+```bash
+cd Docker Boss Final/
+docker-compose up --build
+```
+
+L'application sera accessible sur :
+- Frontend : http://localhost:3000
+- Backend : http://localhost:5000
+
+## Structure du projet
+
+- `/backend` : Serveur Node.js avec Express
+- `/database` : Configuration de la base de données SQLite
+- `/frontend` : React
+
+## Autres commandes
+
+- Pour arrêter l'application : `docker-compose down`
+- Pour voir les logs : `docker-compose logs -f`
+
+
 # C# 7 + xUnit Starter for Coding Dojo
 
 This project provides a starter pack for Coding Dojo sessions using C# 7 and xUnit for testing. It is designed to help you quickly set up a C# project with xUnit as the testing framework so that you can focus on practicing coding katas and improving your programming skills.
